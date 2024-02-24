@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const li = createTaskItem(taskContent);
             taskList.appendChild(li);
             taskInput.value = "";
-            updateContainerVisibility(); // Update visibility after adding task
+            updateContainerVisibility(); 
         }
     };
 
@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteTask = (event) => {
         event.stopPropagation();
         event.target.parentElement.remove();
-        updateContainerVisibility(); // Update visibility after deleting task
+        updateContainerVisibility(); 
     };
-
+    
     taskInput.addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
             addTask();
@@ -53,15 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
     addButton.addEventListener("click", addTask);
     taskInput.parentNode.appendChild(addButton);
 
-    // Function to update container2 visibility based on task list content
     function updateContainerVisibility() {
         if (taskList.children.length === 0) {
-            container2.style.display = "none"; // Hide container2 if no tasks
+            container2.style.display = "none";
         } else {
-            container2.style.display = "block"; // Show container2 if there are tasks
+            container2.style.display = "block";
         }
     }
 
-    // Check initial visibility
     updateContainerVisibility();
 });
